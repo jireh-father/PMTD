@@ -1,5 +1,6 @@
 import functools
 import json
+import os
 import os.path as path
 
 import cv2
@@ -48,6 +49,7 @@ class CocoLabel:
         self.items_annotation = []
 
     def dump(self, dst_label_file):
+        os.makedirs(os.path.dirname(dst_label_file), exist_ok=True)
         with open(dst_label_file, 'w') as f:
             json.dump({'info': self.item_info, 'licenses': self.item_licenses, 'categories': self.item_categories,
                        'images': self.items_image, 'annotations': self.items_annotation}, f)
@@ -128,7 +130,7 @@ class GenerateUtil:
     @staticmethod
     def generate_item_true_annotation(items_annotation, image_id, image_index, image_size, label_path_template, use_ignore):
         label_path = path.abspath(label_path_template % image_index)
-        with open(label_path) as f:
+        with open(label_path, encoding='utf-8') as f:
             for line in f.readlines():
                 data = line.split(',')
                 segmentation = np.asarray(data[:8], dtype=int)
