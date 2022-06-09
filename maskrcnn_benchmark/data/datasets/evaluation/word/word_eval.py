@@ -7,7 +7,7 @@ import itertools
 from tqdm import tqdm
 
 from maskrcnn_benchmark.modeling.roi_heads.mask_head.inference import Masker
-from maskrcnn_benchmark.modeling.roi_heads.ke_head.inference import KEer
+
 from maskrcnn_benchmark.structures.bounding_box import BoxList
 from maskrcnn_benchmark.structures.boxlist_ops import boxlist_iou
 
