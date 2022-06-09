@@ -43,9 +43,9 @@ MODEL:
     RESOLUTION: 28
     SHARE_BOX_FEATURE_EXTRACTOR: False
   MASK_ON: True
-PROCESS:
-  PNMS: False
-  NMS_THRESH: 0.2
+#PROCESS:
+#  PNMS: False
+#  NMS_THRESH: 0.2
 DATASETS:
   TRAIN: ("ic17_train",)
   TEST: ("ic17_test",)
