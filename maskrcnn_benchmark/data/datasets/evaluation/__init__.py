@@ -2,7 +2,7 @@ from maskrcnn_benchmark.data import datasets
 
 from .coco import coco_evaluation
 from .voc import voc_evaluation
-
+from .word import word_evaluation
 
 def evaluate(dataset, predictions, output_folder, **kwargs):
     """evaluate dataset using different methods based on dataset type.
@@ -19,7 +19,7 @@ def evaluate(dataset, predictions, output_folder, **kwargs):
         dataset=dataset, predictions=predictions, output_folder=output_folder, **kwargs
     )
     if isinstance(dataset, datasets.COCODataset):
-        return coco_evaluation(**args)
+        return word_evaluation(**args)
     elif isinstance(dataset, datasets.PascalVOCDataset):
         return voc_evaluation(**args)
     else:
