@@ -5,13 +5,13 @@ MODEL:
   WEIGHT: "r50_imagenet_pretrained.pth"
   BACKBONE:
     CONV_BODY: "R-50-FPN"
-#  RESNETS:
-#    STEM_FUNC: "StemWithBatchNorm"
-#    TRANS_FUNC: "BottleneckWithBatchNorm"
-#    BACKBONE_OUT_CHANNELS: 256
-#    STRIDE_IN_1X1: False
   RESNETS:
+    STEM_FUNC: "StemWithBatchNorm"
+    TRANS_FUNC: "BottleneckWithBatchNorm"
     BACKBONE_OUT_CHANNELS: 256
+    STRIDE_IN_1X1: False
+#  RESNETS:
+#    BACKBONE_OUT_CHANNELS: 256
   RPN:
     RPN_HEAD: "SingleConvRPNHead_Softmax"
     USE_FPN: True
@@ -43,9 +43,9 @@ MODEL:
     RESOLUTION: 28
     SHARE_BOX_FEATURE_EXTRACTOR: False
   MASK_ON: True
-#PROCESS:
-#  PNMS: False
-#  NMS_THRESH: 0.2
+PROCESS:
+  PNMS: False
+  NMS_THRESH: 0.2
 DATASETS:
   TRAIN: ("ic17_train",)
   TEST: ("ic17_test",)
