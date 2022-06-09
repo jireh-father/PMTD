@@ -273,8 +273,11 @@ _C.MODEL.RESNETS.STRIDE_IN_1X1 = True
 
 # Residual transformation function
 _C.MODEL.RESNETS.TRANS_FUNC = "BottleneckWithFixedBatchNorm"
+_C.MODEL.RESNETS.DEF_FUNC = "BottleneckWithFixedBatchNorm"
 # ResNet's stem function (conv1 and pool1)
 _C.MODEL.RESNETS.STEM_FUNC = "StemWithFixedBatchNorm"
+_C.MODEL.RESNETS.DEF_START_MODULE = "NA"
+_C.MODEL.RESNETS.DEFORM_POOLING = False
 
 # Apply dilation in stage "res5"
 _C.MODEL.RESNETS.RES5_DILATION = 1
