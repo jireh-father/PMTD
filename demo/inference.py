@@ -154,7 +154,10 @@ def save_results(dataset, predictions, save_path):
     coco_results = collections.defaultdict(list)
     for image_id, box, mask, score in tqdm(input_list):
         # mask [C=1, H=28, W=28], points [4, 2]
-        points = pc.reg_pyramid_in_image(mask[0], box)
+        try:
+            points = pc.reg_pyramid_in_image(mask[0], box)
+        except:
+            continue
         points = torch.round(points).to(torch.int32).numpy()
         if not is_clockwise(points):  # may cause by clamp() and round()
             continue
