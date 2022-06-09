@@ -47,7 +47,7 @@ PROCESS:
   PNMS: False
   NMS_THRESH: 0.2
 DATASETS:
-  TRAIN: ("ic17_train",)
+  TRAIN: ("ic17_train","ic15_train","ic15_test",)
   TEST: ("ic17_test",)
 DATALOADER:
   SIZE_DIVISIBILITY: 32
