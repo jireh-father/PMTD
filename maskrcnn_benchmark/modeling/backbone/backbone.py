@@ -38,7 +38,7 @@ def build_resnet_fpn_backbone(cfg):
         out_channels=out_channels,
         conv_block=conv_with_kaiming_uniform(
             cfg.MODEL.FPN.USE_GN, cfg.MODEL.FPN.USE_RELU,
-            cfg.MODEL.FPN.USE_DEFORMABLE
+            # cfg.MODEL.FPN.USE_DEFORMABLE
         ),
         top_blocks=fpn_module.LastLevelMaxPool(),
     )
