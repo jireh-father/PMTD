@@ -23,6 +23,9 @@ _C = CN()
 _C.MODEL = CN()
 _C.MODEL.RPN_ONLY = False
 _C.MODEL.MASK_ON = False
+_C.MODEL.FCOS_ON = False
+_C.MODEL.KE_ON = False
+_C.MODEL.MSR_ON = False
 _C.MODEL.RETINANET_ON = False
 _C.MODEL.KEYPOINT_ON = False
 _C.MODEL.DEVICE = "cuda"
@@ -41,6 +44,8 @@ _C.MODEL.WEIGHT = ""
 _C.INPUT = CN()
 # Size of the smallest side of the image during training
 _C.INPUT.MIN_SIZE_TRAIN = (800,)  # (800,)
+# The range of the smallest side for multi-scale training
+_C.INPUT.MIN_SIZE_RANGE_TRAIN = (-1, -1)  # -1 means disabled and it will use MIN_SIZE_TRAIN
 # Maximum size of the side of the image during training
 _C.INPUT.MAX_SIZE_TRAIN = 1333
 # Size of the smallest side of the image during testing
@@ -223,6 +228,7 @@ _C.MODEL.ROI_BOX_HEAD.USE_GN = False
 _C.MODEL.ROI_BOX_HEAD.DILATION = 1
 _C.MODEL.ROI_BOX_HEAD.CONV_HEAD_DIM = 256
 _C.MODEL.ROI_BOX_HEAD.NUM_STACKED_CONVS = 4
+_C.MODEL.ROI_BOX_HEAD.CLASS_WEIGHT = 1.0
 
 
 _C.MODEL.ROI_MASK_HEAD = CN()
@@ -436,6 +442,11 @@ _C.TEST.DETECTIONS_PER_IMG = 100
 # Misc options
 # ---------------------------------------------------------------------------- #
 _C.OUTPUT_DIR = "."
+_C.IS_LOAD_OPTIMIZER = True
+_C.IS_LOAD_SCHEDULER = True
+_C.PROCESS = CN()
+_C.PROCESS.PNMS = False
+_C.PROCESS.NMS_THRESH = 0.4
 
 _C.PATHS_CATALOG = os.path.join(os.path.dirname(__file__), "paths_catalog.py")
 
