@@ -160,6 +160,7 @@ class BoxList(object):
         # bbox._copy_extra_fields(self)
         for k, v in self.extra_fields.items():
             if not isinstance(v, torch.Tensor):
+                print("debug", v, method)
                 v = v.transpose(method)
             bbox.add_field(k, v)
         return bbox.convert(self.mode)
