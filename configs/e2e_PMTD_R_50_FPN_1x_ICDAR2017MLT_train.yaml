@@ -1,4 +1,4 @@
-OUTPUT_DIR: "./output/pmtd"
+OUTPUT_DIR: "./output/pmtd_ic17"
 MODEL:
   META_ARCHITECTURE: "GeneralizedRCNN"
 #  WEIGHT: 'models/PMTD_ICDAR2017MLT.pth'
