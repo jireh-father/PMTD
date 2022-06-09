@@ -54,6 +54,7 @@ if __name__ == '__main__':
     import os.path as path
 
     root_dir = 'datasets/icdar2017mlt'
+    root_dir = 'D:/dataset/upstage/ICDAR17_MLT/raw'
     image_dir_dict = {
         'training': 'ch8_training_images',
         'validation': 'ch8_validation_images',
@@ -65,8 +66,10 @@ if __name__ == '__main__':
         'test': 'ts_img_%05d'
     }
     label_dir_dict = {
-        'training': 'ch8_training_localization_transcription_gt_v2',
-        'validation': 'ch8_validation_localization_transcription_gt_v2'
+        # 'training': 'ch8_training_localization_transcription_gt_v2',
+        # 'validation': 'ch8_validation_localization_transcription_gt_v2'
+        'training': 'ch8_training_gt',
+        'validation': 'ch8_validation_gt'
     }
     label_template_dict = {
         'training': 'gt_img_%d.txt',
@@ -76,4 +79,7 @@ if __name__ == '__main__':
     src_info = [root_dir, image_dir_dict, image_template_dict, label_dir_dict, label_template_dict]
 
     test_label_file = path.join(root_dir, 'annotations', 'test_coco.json')
-    generate_cocojson('test', 9000, test_label_file)
+    train_label_file = path.join(root_dir, 'annotations', 'train_coco.json')
+    generate_cocojson('training', 7200, train_label_file)
+    val_label_file = path.join(root_dir, 'annotations', 'val_coco.json')
+    generate_cocojson('validation', 1800, val_label_file)

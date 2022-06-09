@@ -108,14 +108,26 @@ class DatasetCatalog(object):
             "img_dir": "icdar2015/ch4_test_images",
             "ann_file": "icdar2015/annotations/test_coco.json"
         },
-        "icdar_2017_mlt_val": {
-            "img_dir": "icdar2017mlt/ch8_validation_images",
-            "ann_file": "icdar2017mlt/annotations/validate_coco_with_ignore.json"
-        },
         "icdar_2017_mlt_test": {
             "img_dir": "icdar2017mlt/ch8_test_images",
             "ann_file": "icdar2017mlt/annotations/test_coco.json"
         },
+        "ic17_train": {
+            "img_dir": "ic17/ic17_train_images",
+            "ann_file": "ic17/annotations/ic17_train.json"
+        },
+        "ic17_test": {
+            "img_dir": "ic17/ic17_test_images",
+            "ann_file": "ic17/annotations/ic17_test.json"
+        },
+        "ic15_train": {
+            "img_dir": "ic15/ic15_train_images",
+            "ann_file": "ic15/annotations/ic15_train.json"
+        },
+        "ic15_test": {
+            "img_dir": "ic15/ic15_test_images",
+            "ann_file": "ic15/annotations/ic15_test.json"
+        }
     }
 
     @staticmethod
@@ -142,7 +154,7 @@ class DatasetCatalog(object):
                 factory="PascalVOCDataset",
                 args=args,
             )
-        elif "icdar" in name:
+        elif "icdar" in name or "ic" in name:
             data_dir = DatasetCatalog.DATA_DIR
             attrs = DatasetCatalog.DATASETS[name]
             args = dict(

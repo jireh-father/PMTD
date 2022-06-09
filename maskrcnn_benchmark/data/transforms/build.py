@@ -31,7 +31,8 @@ def build_transforms(cfg, is_train=True):
         saturation=saturation,
         hue=hue,
     )
-
+    if not isinstance(min_size, int):
+        min_size = min_size[0]
     if min_size < 0:
         Resize = demo.Resize(max_size, with_target=True)
     else:
