@@ -154,7 +154,7 @@ class DatasetCatalog(object):
                 factory="PascalVOCDataset",
                 args=args,
             )
-        elif "icdar" in name:
+        elif "icdar" in name or "ic" in name:
             data_dir = DatasetCatalog.DATA_DIR
             attrs = DatasetCatalog.DATASETS[name]
             args = dict(
