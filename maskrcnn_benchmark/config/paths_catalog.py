@@ -127,6 +127,11 @@ class DatasetCatalog(object):
         "ic15_test": {
             "img_dir": "ic15/ic15_test_images",
             "ann_file": "ic15/annotations/ic15_test.json"
+        },
+        "upstage_std_test": {
+            "img_dir":"eval/images",
+            "ann_file":"eval/eval_coco.json"
+
         }
     }
 
@@ -154,7 +159,7 @@ class DatasetCatalog(object):
                 factory="PascalVOCDataset",
                 args=args,
             )
-        elif "icdar" in name or "ic" in name:
+        elif "icdar" in name or "ic" in name or "upstage" in name:
             data_dir = DatasetCatalog.DATA_DIR
             attrs = DatasetCatalog.DATASETS[name]
             args = dict(
