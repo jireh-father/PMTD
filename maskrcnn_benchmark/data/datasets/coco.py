@@ -85,7 +85,7 @@ class COCODataset(torchvision.datasets.coco.CocoDetection):
         try:
             img, anno = self.super_getitem(idx)
         except:
-            return __getitem(random.randint(0, len(self) + 1))
+            return self.__getitem__(random.randint(0, len(self) + 1))
 
         # filter crowd annotations
         # TODO might be better to add an extra field
