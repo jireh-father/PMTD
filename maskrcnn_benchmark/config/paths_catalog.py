@@ -132,6 +132,11 @@ class DatasetCatalog(object):
             "img_dir":"eval/images",
             "ann_file":"eval/eval_coco.json"
 
+        },
+
+        "kaist_train": {
+            "img_dir":"kaist/kaist_images",
+            "ann_file":"kaist/annotations/kaist_train_coco_keypoint.json"
         }
     }
 
@@ -159,7 +164,7 @@ class DatasetCatalog(object):
                 factory="PascalVOCDataset",
                 args=args,
             )
-        elif "icdar" in name or "ic" in name or "upstage" in name:
+        elif "icdar" in name or "ic" in name or "upstage" in name or "kaist" in name:
             data_dir = DatasetCatalog.DATA_DIR
             attrs = DatasetCatalog.DATASETS[name]
             args = dict(
