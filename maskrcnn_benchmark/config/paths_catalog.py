@@ -136,7 +136,7 @@ class DatasetCatalog(object):
 
         "kaist_train": {
             "img_dir":"kaist/kaist_images",
-            "ann_file":"kaist/annotations/kaist_train_coco_keypoint.json"
+            "ann_file":"kaist/annotations/kaist_train_coco.json"
         }
     }
 
