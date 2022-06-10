@@ -98,20 +98,20 @@ def inference(
     )
 
     predictions = _accumulate_predictions_from_multiple_gpus(predictions)
-    if not is_main_process():
-        return
+    #if not is_main_process():
+        #return
 
     if output_folder:
         torch.save(predictions, os.path.join(output_folder, "predictions.pth"))
         torch.save(dataset, os.path.join(output_folder, "dataset.pth"))
 
-    if masker is None:
+    if False:#masker is None:
         assert output_folder is not None
         save_path = os.path.join(output_folder, f"results_{max(predictions[0].size)}.pth")
         save_results(dataset, predictions, save_path)
         return
 
-    assert isinstance(masker, Masker)
+    #assert isinstance(masker, Masker)
 
     extra_args = dict(
         box_only=box_only,
