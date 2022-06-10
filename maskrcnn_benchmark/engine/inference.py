@@ -118,7 +118,7 @@ def inference(
         iou_types=iou_types,
         expected_results=expected_results,
         expected_results_sigma_tol=expected_results_sigma_tol,
-        masker=masker
+        #masker=masker
     )
 
     return evaluate(dataset=dataset,
