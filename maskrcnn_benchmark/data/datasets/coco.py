@@ -9,7 +9,7 @@ from PIL import Image
 from maskrcnn_benchmark.structures.bounding_box import BoxList
 from maskrcnn_benchmark.structures.segmentation_mask import SegmentationMask
 from maskrcnn_benchmark.structures.keypoint import PersonKeypoints
-
+import random
 
 min_keypoints_per_image = 10
 
@@ -82,7 +82,10 @@ class COCODataset(torchvision.datasets.coco.CocoDetection):
         return img, target
 
     def __getitem__(self, idx):
-        img, anno = self.super_getitem(idx)
+        try:
+            img, anno = self.super_getitem(idx)
+        except:
+            return __getitem(random.randint(0, len(self) + 1))
 
         # filter crowd annotations
         # TODO might be better to add an extra field
