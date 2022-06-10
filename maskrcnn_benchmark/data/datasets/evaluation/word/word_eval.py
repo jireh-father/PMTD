@@ -58,7 +58,7 @@ def do_coco_evaluation(
 
     logger.info("Do not apply evaluating predictions")
     for iou_type in iou_types:
-        if out_type == "kes":
+        if iou_type == "kes":
             continue
         with tempfile.NamedTemporaryFile() as f:
             file_path = f.name
